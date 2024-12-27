@@ -3,10 +3,11 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
 const taskRoutes = require("./routes/task.routes");
+require("dotenv").config();
+const port = process.env.PORT  || 10000;
+const Mongo_URL = process.env.MONGODB_URL;
 
-const port = 8082;
 app.use(cors());
-const DB_URI = "mongodb://localhost:27017/task-manager";
 
 
 
@@ -14,7 +15,7 @@ app.use(express.json());
 app.use("/tasks", taskRoutes);
 
 mongoose
-  .connect(DB_URI
+  .connect(Mongo_URL
 )
   .then(() => {
     console.log("DB connected !!");
