@@ -4,7 +4,9 @@ const cors = require("cors");
 const app = express();
 const taskRoutes = require("./routes/task.routes");
 require("dotenv").config();
-const port = process.env.PORT  || 10000;
+const port = process.env.PORT  || 8082;
+
+
 const Mongo_URL = process.env.MONGODB_URL;
 
 app.use(cors());
